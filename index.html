@@ -1,0 +1,72 @@
+<html lang="en"><head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <title>KEKM</title>
+
+    <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="indexStyle.css" rel="stylesheet">
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
+        <div class="navbar-header">
+          <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="#">KEKM</a>
+        </div>
+        <div id="navbar" class="collapse navbar-collapse">
+          <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#contact">Contact</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container">
+
+      <div id="question-area">
+        <h2 id="question-head">Question1</h2>
+        <p id="question"></p>
+      </div>
+
+      <h3 id="score">score: 0</h3>
+
+      <div id ="answer-area" class="row">
+        <div id="score0" class="col-md-6">
+          <button type="button" class="btn btn-default btn-lg btn-block answer-button">Not at all</button>
+        </div>
+        <div id="score1" class="col-md-6">
+          <button type="button" class="btn btn-default btn-lg btn-block answer-button">Several days</button>
+        </div>
+        <div id="score2" class="col-md-6">
+          <button type="button" class="btn btn-default btn-lg btn-block answer-button">More than half the days</button>
+        </div>
+        <div id="score3" class="col-md-6">
+          <button type="button" class="btn btn-default btn-lg btn-block answer-button">Nearly every day</button>
+        </div>
+      </div>
+
+      <button type="button" id="back-button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
+      </button>
+    </div><!-- /.container -->
+
+
+    
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+    <!-- Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap/js/bootstrap.min.js"></script>
+    <script src="indexScript.js"></script>
+
+</body></html>

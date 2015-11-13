@@ -1,0 +1,33 @@
+body {
+	/*position: absolute;*/
+	padding-top: 50px;
+	font-size: 20px;
+	text-align: center;
+}
+#question-area {
+	padding: 40px 15px;
+	padding-bottom: 10px;
+}
+#answer-area{
+	/*background-color: gray;*/
+	padding: 5%;
+}
+#score0 {
+	/*background-color: red;*/
+	margin-top: 2%;
+}
+#score1 {
+	/*background-color: blue;*/
+	margin-top: 2%;
+}
+#score2 {
+	/*background-color: blue;*/
+	margin-top: 2%;
+}
+#score3 {
+	/*background-color: blue;*/
+	margin-top: 2%;
+}
+#back-button{
+	margin-top: 3%;
+}
