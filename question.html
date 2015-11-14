@@ -1,12 +1,12 @@
-<!DOCTYPE>
 <html lang="en"><head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
     <title>KEKM</title>
+
     <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="index.css" rel="stylesheet">
+    <link href="question.css" rel="stylesheet">
   </head>
 
   <body>
@@ -32,16 +32,40 @@
       </div>
     </nav>
 
-    <div class='button'>
-      <a href="question.html"><span class='pulse-button'>START</span></a>
-    </div>
+    <div class="container">
+
+      <div id="question-area">
+        <h2 id="question-head">Question1</h2>
+        <p id="question"></p>
+      </div>
+
+      <h3 id="score">score: 0</h3>
+
+      <div id ="answer-area" class="row">
+        <div id="score0" class="col-md-6">
+          <button type="button" class="btn btn-default btn-lg btn-block answer-button">Not at all</button>
+        </div>
+        <div id="score1" class="col-md-6">
+          <button type="button" class="btn btn-default btn-lg btn-block answer-button">Several days</button>
+        </div>
+        <div id="score2" class="col-md-6">
+          <button type="button" class="btn btn-default btn-lg btn-block answer-button">More than half the days</button>
+        </div>
+        <div id="score3" class="col-md-6">
+          <button type="button" class="btn btn-default btn-lg btn-block answer-button">Nearly every day</button>
+        </div>
+      </div>
+
+      <button type="button" id="back-button" class="btn btn-default btn-lg">
+        <span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span> Back
+      </button>
+    </div><!-- /.container -->
+
     
     <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
     <!-- Include all compiled plugins (below), or include individual files as needed -->
     <script src="bootstrap/js/bootstrap.min.js"></script>
-    <script src="index.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/1.18.0/TweenMax.min.js"></script>
+    <script src="question.js"></script>
 
-</body>
-</html>
+</body></html>
