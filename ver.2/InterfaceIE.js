@@ -83,7 +83,7 @@ function postSuccess(res) {
 
     if(currentQ == -1){
         renderResult();
-            }
+    }
     updateCurrentQ('plus');
 
 }

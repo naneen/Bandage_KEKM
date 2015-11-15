@@ -1,6 +1,4 @@
 var currentQ = 1;
-// var mainT = [true, true, true, true, true, true, true, true];
-// var addT = [true, true, true, true, true];
 var answers = ['', '', '', '', '', '', '', '', ''];
 var questions = [
     'For at least 2 weeks, do you have these following symptoms (can have more than one answer)?',
@@ -127,17 +125,18 @@ var addTreatment = [
 ];
 
 function updateCurrentQ(command) {
-    if (currentQ < questions.length) {
-//		if(command=='plus'){ currentQ++; }
+
+    if (currentQ <= questions.length) {
         if (command == 'minus') {
             currentQ--;
         }
+        // if(command=='plus'){ 
+        // 	currentQ++; 
+        // }
+        console.log("currentQ: " + currentQ);
         $('#question-head').html('Q' + currentQ);
         $('#question-text').html(questions[currentQ - 1]);
         updateCurrentChoices();
-    }
-    else {
-        console.log(answers);
     }
 };
 
@@ -175,7 +174,6 @@ function countCheckbox() {
 
 function addAnstoArray(ans) {
     answers[currentQ - 1] = ans;
-//	$('#text').html(answers[currentQ-1]);
 };
 
 function threechoices(){
@@ -204,8 +202,7 @@ function setButtonColumn(n) {
             $(this).attr('class', 'col-md-6 collumn-but');
         });
     }
-}
-;
+};
 
 function renderResult() {
 	$('.content').empty();
@@ -238,13 +235,13 @@ $(document).ready(function () {
 
 $("#submitB").click(function () {
     countCheckbox();
-
     droolsPostRequest();
 });
 
 $('#but1').click(function () {
     addAnstoArray(1);
-    updateCurrentQ('plus');
+    droolsPostRequest();
+    // updateCurrentQ('plus');
 });
 
 $('#but2').click(function () {
@@ -254,10 +251,12 @@ $('#but2').click(function () {
     else if (currentQ == 4) {
         addAnstoArray(2);
     }
-    updateCurrentQ('plus');
+    droolsPostRequest();
+    // updateCurrentQ('plus');
 });
 
 $('#but3').click(function () {
     addAnstoArray(3);
-    updateCurrentQ('plus');
+    droolsPostRequest();
+    // updateCurrentQ('plus');
 });
