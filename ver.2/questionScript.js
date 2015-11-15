@@ -89,5 +89,8 @@ $( document ).ready(function() {
 
 $("#submitB").click(function(){
 	countCheckbox();
+        droolsPostRequest();
 	updateCurrentQ('plus');
 });
+
+ 
