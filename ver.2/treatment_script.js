@@ -17,19 +17,19 @@ var questions = [
 ];
 var choices = [
     ['Depressed mood<br>(most of the day, almost every day), (for children and adolescents: either irritability or depressed mood)'
-                , 'Loss of interest or pleasure in activities that are normally pleasurable'
-                , 'Decreased energy or easily fatigued'],
+            , 'Loss of interest or pleasure in activities that are normally pleasurable'
+            , 'Decreased energy or easily fatigued'],
     ['Reduced concentration and attention'
-                , 'Reduced self-esteem and self-con dence'
-                , 'Ideas of guilt and unworthiness'
-                , 'Bleak and pessimistic view of the future'
-                , 'Ideas or acts of self-harm or suicide'
-                , 'Disturbed sleep'
-                , 'Diminished appetite'],
+            , 'Reduced self-esteem and self-con dence'
+            , 'Ideas of guilt and unworthiness'
+            , 'Bleak and pessimistic view of the future'
+            , 'Ideas or acts of self-harm or suicide'
+            , 'Disturbed sleep'
+            , 'Diminished appetite'],
     ['Yes', 'No'],
-    ['Yes, in last 7 days. (recent bereavement)'
-                , 'Yes, in prior 2 months.'
-                , 'No'],
+    ['Yes, in last 7 days.'
+            , 'Yes, in prior 2 months.'
+            , 'No'],
     ['Yes', 'No'],
     ['Yes', 'No'],
     ['Yes', 'No'],
@@ -95,7 +95,7 @@ var mainTreatment = [
 			title: "Main Treatment 8", 
 			content: "<ul type=\"disc\"><li>DO NOT manage the complaint with injections or other ineffective treatments (e.g. vitamins).</li>"
 		}
-	];
+];
 var addTreatment = [
 	{
 		title: "Additional Treatment 1: OTH Suggestion", 
@@ -162,7 +162,7 @@ function createCheckbox() {
     var container = $('#checkbox-ans');
     container.empty();
     for (var i = 0; i < choices[currentQ - 1].length; i++) {
-        container.append('<input type="checkbox" autocomplete="off" id="test'+i+'"><label for="text'+i+'"> ' + choices[currentQ - 1][i] + '</label><br>');
+        container.append('<input type="checkbox" autocomplete="off">   ' + choices[currentQ - 1][i] + '<br>');
     }
 };
 

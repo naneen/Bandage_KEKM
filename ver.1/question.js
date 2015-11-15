@@ -68,16 +68,16 @@ $( document ).ready(function() {
 		$('#question-head').html("Question" + (++question));
 		$('#question').html(questions[question]);
 		if (question == questions.length) {
-		// 	if (score > questions.length - 5) {
-		// 		$('#summary-result').html("It's highly recommended that you consider seeing psychologist for an eveluation.");
-		// 	} else if (score > question.length - 10) {
-		// 		$('#summary-result').html("It's recommended that you consider seeing psychologist for an eveluation.");
-		// 	} else {
-		// 		$('#summary-result').html("You are fine. Keep going.");
-		// 	}
+			if (score > questions.length - 5) {
+				$('#summary-result').html("It's highly recommended that you consider seeing psychologist for an eveluation.");
+			} else if (score > question.length - 10) {
+				$('#summary-result').html("It's recommended that you consider seeing psychologist for an eveluation.");
+			} else {
+				$('#summary-result').html("You are fine. Keep going.");
+			}
 			
-		// 	$('#question-page').fadeToggle();
-		// 	$('#summary-page').fadeToggle();
+			$('#question-page').fadeToggle();
+			$('#summary-page').fadeToggle();
 		}
 	};
 
