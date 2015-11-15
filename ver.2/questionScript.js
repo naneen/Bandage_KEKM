@@ -15,9 +15,6 @@ var questions = [
 	'Are you a female of childbearing age who pregnant or breastfeeding?',
 	'Are you a child or an younger than 12 years adolescent?'
 ];
-
-//var items = [[1,2],[3,4],[5,6]];
-//alert(items[0][0]);
 var choices = [
 	['Depressed mood<br>(most of the day, almost every day), (for children and adolescents: either irritability or depressed mood)'
 	 	,'Loss of interest or pleasure in activities that are normally pleasurable'
@@ -48,6 +45,9 @@ function updateCurrentQ(command){
 		$('#question-text').html(questions[currentQ-1]);
 		updateCurrentChoices();
 	}
+	else{
+		console.log(answers);
+	}
 };
 
 function updateCurrentChoices(){
@@ -59,7 +59,12 @@ function updateCurrentChoices(){
 	else{
 		$('#type-checkbox').hide();
 		$('#type-yesno').show();
-		
+		if(currentQ==4){
+			threechoices();
+		}
+		else{
+			twochoices();
+		}
 	}
 };
 
@@ -79,7 +84,35 @@ function countCheckbox(){
 
 function addAnstoArray(ans) {
 	answers[currentQ-1] = ans;
-	$('#text').html(answers[currentQ-1]);
+//	$('#text').html(answers[currentQ-1]);
+};
+
+function threechoices(){
+	$('#but1').text('but1');
+	$('#but2').text('but2');
+	$('#but3').css('visibility', 'visible');
+	$('#but3').html('but3');
+	setButtonColumn(3);
+};
+
+function twochoices(){
+	$('#but3').css('visibility', 'hidden');	
+	$('#but1').html('Yes');
+	$('#but2').html('No');
+	setButtonColumn(2);
+};
+
+function setButtonColumn(n) {
+	if (n == 3) {
+		$('.collumn-but').each(function () {
+			$(this).attr('class', 'col-md-4 collumn-but');
+		});
+	}
+	if (n == 2) {
+		$('.collumn-but').each(function () {
+			$(this).attr('class', 'col-md-6 collumn-but');
+		});
+	}
 };
 
 $( document ).ready(function() {
@@ -93,4 +126,22 @@ $("#submitB").click(function(){
 	updateCurrentQ('plus');
 });
 
- 
+$('#but1').click(function() {
+	addAnstoArray(1);
+	updateCurrentQ('plus');
+});
+
+$('#but2').click(function() {
+	if(currentQ!=4){
+		addAnstoArray(0);
+	}
+	else if(currentQ==4){
+		addAnstoArray(2);
+	}
+	updateCurrentQ('plus');
+});
+
+$('#but3').click(function() {
+	addAnstoArray(3);
+	updateCurrentQ('plus');
+});
