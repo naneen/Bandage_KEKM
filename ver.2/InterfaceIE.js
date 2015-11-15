@@ -1,6 +1,6 @@
 
-var mainT = Array(false,false,false,false,false,false,false,false,false);
-var addT = Array(false,false,false,false,false);
+var mainT = ["", "", "", "", "", "", "", ""];
+var addT = ["", "", "", "", ""];
 
 
 function getRequest() {
@@ -11,21 +11,21 @@ function getRequest() {
             "<questionNumber>" + currentQ + "</questionNumber>" +
             "<answer>" + answers[currentQ - 1] + "</answer>" +
             "<mainTreatment>" +
-            "<boolean>"+mainT[0]+"</boolean>" +
-            "<boolean>"+mainT[1]+"</boolean>" +
-            "<boolean>"+mainT[2]+"</boolean>" +
-            "<boolean>"+mainT[3]+"</boolean>" +
-            "<boolean>"+mainT[4]+"</boolean>" +
-            "<boolean>"+mainT[5]+"</boolean>" +
-            "<boolean>"+mainT[6]+"</boolean>" +
-            "<boolean>"+mainT[7]+"</boolean>" +
+            "<boolean>" + mainT[0] + "</boolean>" +
+            "<boolean>" + mainT[1] + "</boolean>" +
+            "<boolean>" + mainT[2] + "</boolean>" +
+            "<boolean>" + mainT[3] + "</boolean>" +
+            "<boolean>" + mainT[4] + "</boolean>" +
+            "<boolean>" + mainT[5] + "</boolean>" +
+            "<boolean>" + mainT[6] + "</boolean>" +
+            "<boolean>" + mainT[7] + "</boolean>" +
             "</mainTreatment>" +
             "<additionalTreatment>" +
-            "<boolean>"+addT[0]+"</boolean>" +
-            "<boolean>"+addT[1]+"</boolean>" +
-            "<boolean>"+addT[2]+"</boolean>" +
-            "<boolean>"+addT[3]+"</boolean>" +
-            "<boolean>"+addT[4]+"</boolean>" +
+            "<boolean>" + addT[0] + "</boolean>" +
+            "<boolean>" + addT[1] + "</boolean>" +
+            "<boolean>" + addT[2] + "</boolean>" +
+            "<boolean>" + addT[3] + "</boolean>" +
+            "<boolean>" + addT[4] + "</boolean>" +
             "</additionalTreatment>" +
             "</kekm.drools.User>" +
             "</insert>" +
@@ -43,7 +43,7 @@ function droolsPostRequest() {
         data: getRequest(),
         success: function (res) {
             console.log(res);
-            postSuccess($(res).find("results").text())
+            postSuccess($(res).find("results").text());
         },
         error: function (request, error) {
             alert("XML: not working! " + error);
@@ -61,22 +61,28 @@ function postSuccess(res) {
     var xmlDocument = $.parseXML(xmlString);
     var $xml = $(xmlDocument);
 
-            console.log($xml);
-
-    alert($xml.find('nextQuestion').text());
+    console.log($xml);
     currentQ = $xml.find('nextQuestion').text();
-    
-    
+    if(currentQ == -1){
+        alert("go to result page!!!!!!!!!")
+    }
+
     var i = 0;
     $xml.find("mainTreatment").each(function () {
-        alert("maint "+$(this).text());
-        mainT[i] = $(this).text();
+        $(this).find('boolean').each(function () {
+            mainT[i] = $(this).text();
+            i++;
+        });
     });
-    
-    var i = 0;
+
+    var ii = 0;
     $xml.find("additionalTreatment").each(function () {
-        alert("add "+$(this).text());
-        addT[i] = $(this).text();
+        $(this).find('boolean').each(function () {
+            addT[ii] = $(this).text();
+            ii++;
+        });
     });
     
+    updateCurrentQ('plus');
+
 }
