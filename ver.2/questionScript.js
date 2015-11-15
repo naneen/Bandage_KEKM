@@ -131,7 +131,12 @@ $('#but1').click(function() {
 });
 
 $('#but2').click(function() {
-	addAnstoArray(2);
+	if(currentQ!=4){
+		addAnstoArray(0);
+	}
+	else if(currentQ==4){
+		addAnstoArray(2);
+	}
 	updateCurrentQ('plus');
 });
 
